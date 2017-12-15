@@ -4,7 +4,7 @@ A project portfolio with a machine learning algorithm to predict user interactio
 Submit codes to change wheter to train, predict or display preditions.
 Admin page for adding, changing and removing codes.
 
-## Use a MongoDB database in a Spring Boot Web Application
+## How to build a unsecure spring mvc app
 
 ### Usage
 
