@@ -9,9 +9,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@Configuration // en filer där bönor def. explicit
+@Configuration
 
-@EnableWebMvc // tillåter oss att mappa controllers mot en vis url
+@EnableWebMvc
 
 @ComponentScan({"org.benjamin.portfolio"})
 public class WebConfig extends WebMvcConfigurerAdapter {

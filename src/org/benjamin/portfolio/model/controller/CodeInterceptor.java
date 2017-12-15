@@ -31,11 +31,11 @@ public class CodeInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		System.out.println("Intercepting change slip request");
-		String givenCode = (String) request.getAttribute("code");
+//		String givenCode = (String) request.getAttribute("code");
 		// check code exist in DB
 		System.out.println("Checking if code exists...");
 		System.out.println("code repo is null = " + Boolean.toString(codeRepository == null));
-//		Code code = codeRepository.findByCode(givenCode);
+//		Code code = codeRepository.findByCode("abc");
 		Code code = new Code();
 		if (code != null) {
 			return true;

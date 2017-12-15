@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.benjamin.portfolio.spring.repository.HasKey;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection="training_examples")
 public class Training implements HasKey {
 	
 	@Id

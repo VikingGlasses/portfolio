@@ -25,8 +25,8 @@ public class PredictionController {
 	@Autowired
 	private TrainingRepository trainingRepository;
 	
-//	@Autowired
-//	private TrainingSession trainingSession;
+	@Autowired
+	private TrainingSession trainingSession;
 	
 	@RequestMapping(path="/{name}", method=RequestMethod.POST)
 	public Response runMachineLearning(@PathVariable String name, HttpSession session) {
@@ -36,13 +36,14 @@ public class PredictionController {
 
 		System.out.println("token repo is null = " + Boolean.toString(tokenRepository == null));
 		Token token = tokenRepository.findOne("2");
-		RequestSlip slip = token.getRequestSlip();
+//		RequestSlip slip = token.getRequestSlip();
+		RequestSlip slip = new RequestSlip();
 		
 		if (slip.isRunTraining()) {
-//			Training training = new Training(trainingSession.summariesData(), name);
-//			trainingSession.handle(name);
+			Training training = new Training(trainingSession.summariesData(), name);
+			trainingSession.handle(name);
 			// save training
-//			trainingRepository.save(training);
+			trainingRepository.save(training);
 			// run training
 			// execute training
 			System.out.println("Saved training...");
@@ -57,7 +58,7 @@ public class PredictionController {
 			}
 		}
 		// return empty response
-		return null;
+		return Response.ok().build();
 	}
 
 }
