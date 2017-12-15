@@ -1,19 +1,21 @@
 # portfolio
 
-- Summary
+A project portfolio with a machine learning algorithm to predict user interaction.
+Submit codes to change wheter to train, predict or display preditions.
+Admin page for adding, changing and removing codes.
 
 ## Use a MongoDB database in a Spring Boot Web Application
 
 ### Usage
 
-- Run the application and go on http://localhost:8080/portfolio
-- Use the following urls to invoke controllers methods and see the interactions
-  with the database:
-    * `/user/save?email=[email]&name=[name]`: create a new user with an 
-      auto-generated id and email and name as passed values.
-    * `/user/delete?id=[id]`: delete the user with the passed id.
-    * `/user/get-by-email?email=[email]`: retrieve the id for the user with the
-      passed email address.
+- Run the application and use postman with the base URI http://localhost:8080/portfolio
+- Use the following urls to invoke the admin controller methods to set usable codes and their 
+  behaviour, where code is any string and the other paramaters are either 'true' or 'false':
+    * `/admin/create/{code}/{train}/{predict}/{view}/{admin}`: creates a new code
+    * `/admin/update/{code}/{train}/{predict}/{view}/{admin}`: updates the code with the new
+    behaviour or creates a new code if it didn't exist.
+    * `/admin/codes`: GET method returns all codes.
+    * `/admin/delete/{code}`: deletes a code.
 
 ### Build and run
 
@@ -22,7 +24,8 @@
 - Java 8
 - Maven 3
 - MongoDB 3.4
+- I use Tomcat plus 8.5, but it should work on any server.
 
 #### From Eclipse (Spring Tool Suite)
 
-Import as *Existing Maven Project* and run it as *Spring Boot App*.
+Import as *Existing Maven Project* and run on your server.
