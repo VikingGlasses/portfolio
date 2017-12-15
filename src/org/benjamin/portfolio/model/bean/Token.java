@@ -1,11 +1,10 @@
 package org.benjamin.portfolio.model.bean;
 
-import org.benjamin.portfolio.spring.repository.HasKey;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "tokens")
-public class Token implements HasKey {
+public class Token {
 	
 	@Id
 	private String key;
@@ -16,7 +15,6 @@ public class Token implements HasKey {
 		requestSlip = new RequestSlip();
 	}
 	
-	@Override
 	public String getKey() {
 		return key;
 	}

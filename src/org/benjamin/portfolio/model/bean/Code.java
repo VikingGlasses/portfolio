@@ -1,15 +1,10 @@
 package org.benjamin.portfolio.model.bean;
 
-import java.io.Serializable;
-
-import org.benjamin.portfolio.spring.repository.HasKey;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "codes")
-public class Code implements HasKey, Serializable {
-	
-	private static final long serialVersionUID = 6222099660440989434L;
+public class Code {
 	
 	@Id
 	private String key;
@@ -42,7 +37,6 @@ public class Code implements HasKey, Serializable {
 		this.requestSlip = requestSlip;
 	}
 
-	@Override
 	public String getKey() {
 		return key;
 	}

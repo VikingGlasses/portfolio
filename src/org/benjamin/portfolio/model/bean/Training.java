@@ -2,12 +2,11 @@ package org.benjamin.portfolio.model.bean;
 
 import java.util.List;
 
-import org.benjamin.portfolio.spring.repository.HasKey;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="training_examples")
-public class Training implements HasKey {
+public class Training {
 	
 	@Id
 	private String key;
@@ -47,7 +46,6 @@ public class Training implements HasKey {
 		this.result = result;
 	}
 
-	@Override
 	public String getKey() {
 		return key;
 	}
