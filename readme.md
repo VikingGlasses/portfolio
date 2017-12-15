@@ -16,6 +16,10 @@ Admin page for adding, changing and removing codes.
     behaviour or creates a new code if it didn't exist.
     * `/admin/codes`: GET method returns all codes.
     * `/admin/delete/{code}`: deletes a code.
+- Submit a code to change behaviour with:
+    * `/submit/code/{code}`: change behaviour to match the codes.
+- Submit a machine learning request with:
+    * `/ml/{name}`: submits a training/prediction request.
 
 ### Build and run
 
