@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/ml")
-public class PredictionController {
+public class MachineLearningController {
 	
 	@Autowired
 	private TokenRepository tokenRepository;
