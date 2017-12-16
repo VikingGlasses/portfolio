@@ -20,13 +20,15 @@ public class Token {
 	private String key;
 	private String expire;
 	private RequestSlip requestSlip;
+	private boolean admin;
 	
 	public Token() {
 	}
 	
-	public Token(String expire, RequestSlip requestSlip) {
+	public Token(String expire, RequestSlip requestSlip, boolean admin) {
 		this.expire = expire;
 		this.requestSlip = requestSlip;
+		this.admin = admin;
 	}
 
 	public String getKey() {
@@ -47,6 +49,14 @@ public class Token {
 	
 	public void setRequestSlip(RequestSlip requestSlip) {
 		this.requestSlip = requestSlip;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 }
