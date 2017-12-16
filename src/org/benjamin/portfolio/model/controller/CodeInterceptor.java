@@ -10,6 +10,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Intercepter for checking validity of submitted code.
+ * 
+ * @author Benjamin Rosman
+ * @see HandlerInterceptor
+ */
+// TODO: lookup possibilities of other/better approach
 public class CodeInterceptor implements HandlerInterceptor {
 	
 	@Autowired
@@ -31,10 +38,14 @@ public class CodeInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		System.out.println("Intercepting change slip request");
+		// TODO: check how to get rest value from request.
+		
 //		String givenCode = (String) request.getAttribute("code");
+		
 		// check code exist in DB
 		System.out.println("Checking if code exists...");
 		System.out.println("code repo is null = " + Boolean.toString(codeRepository == null));
+		// TODO: fix codeRepository null
 //		Code code = codeRepository.findByCode("abc");
 		Code code = new Code();
 		if (code != null) {
