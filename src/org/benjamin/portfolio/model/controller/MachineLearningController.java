@@ -37,24 +37,24 @@ public class MachineLearningController {
 	/**
 	 * Runs the appropriate algorithms based on the users token.
 	 * 
-	 * @param name User input.
+	 * @param input User input.
 	 * @param session The users session.
 	 * @return Either an empty ok response or a prediction.
 	 */
-	@RequestMapping(path="/{name}", method=RequestMethod.POST)
-	public Response runMachineLearning(@PathVariable String name, HttpSession session) {
+	@RequestMapping(path="/{input}", method=RequestMethod.POST)
+	public Response run(@PathVariable String input, HttpSession session) {
 		System.out.println("running machine learning request...");
 //		String key = (String) session.getAttribute("token-key");
-		// pre validate token with interceptor
+		// pre-validate token with something
 
 		System.out.println("token repo is null = " + Boolean.toString(tokenRepository == null));
-		Token token = tokenRepository.findOne("2");
+//		Token token = tokenRepository.findOne("key");
 //		RequestSlip slip = token.getRequestSlip();
 		RequestSlip slip = new RequestSlip();
 		
 		if (slip.isRunTraining()) {
-			Training training = new Training(trainingSession.summariesData(), name);
-			trainingSession.handle(name);
+			Training training = new Training(trainingSession.summariesData(), input);
+			trainingSession.handle(input);
 			// save training
 			trainingRepository.save(training);
 			// run training
