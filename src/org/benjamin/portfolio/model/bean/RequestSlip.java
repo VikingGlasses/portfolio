@@ -1,5 +1,11 @@
 package org.benjamin.portfolio.model.bean;
 
+/**
+ * POJO for checking users request behavior.
+ * 
+ * @author Benjamin Rosman
+ *
+ */
 public class RequestSlip {
 	
 	private boolean viewPrediction;
