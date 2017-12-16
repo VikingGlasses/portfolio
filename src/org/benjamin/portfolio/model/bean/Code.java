@@ -1,8 +1,19 @@
 package org.benjamin.portfolio.model.bean;
 
+import org.benjamin.portfolio.model.repository.CodeRepository;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Code associated with behavior and administrator permission.
+ * 
+ * <p>Used for persistent code storing and changing the behavior associated with
+ * a users token.</p>
+ * 
+ * @author Benjamin Rosman
+ * @see CodeRepository
+ *
+ */
 @Document(collection = "codes")
 public class Code {
 	
