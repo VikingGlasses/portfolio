@@ -2,16 +2,24 @@ package org.benjamin.portfolio.model.bean;
 
 import java.util.List;
 
+import org.benjamin.portfolio.model.repository.TrainingRepository;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Bean for persistent storage of a training example for a machine learning algorithm.
+ * 
+ * @author Benjamin Rosman
+ * @see TrainingRepository
+ *
+ */
 @Document(collection="training_examples")
 public class Training {
 	
 	@Id
 	private String key;
 	
-	private String dateTime; // TODO change type and set time to now;
+	private String dateTime; // TODO change type and set default time to now;
 	private List<Double> data;
 	private String result;
 	
