@@ -26,7 +26,7 @@ public class AdminController {
 	private CodeRepository codeRepository;
 	
 	/**
-	 * Creates and persistently stores a new code.
+	 * Creates or updates existing code and persistently stores it.
 	 * 
 	 * @param code The code.
 	 * @param train The training behavior to be associated with this code.
@@ -44,10 +44,7 @@ public class AdminController {
 					@PathVariable("view") boolean view,
 					@PathVariable("admin") boolean admin) {
 		
-		System.out.println("Creating code...");
-		RequestSlip requestSlip = new RequestSlip(view, predict, train);
-		Code objCode = new Code(code, requestSlip, admin);
-		return codeRepository.save(objCode);
+		return updateCode(code, train, predict, view, admin);
 	}
 	
 	/**
@@ -96,7 +93,7 @@ public class AdminController {
 	}
 
 	/**
-	 * Deletes the code.
+	 * Deletes the code completely.
 	 * 
 	 * @param code Code to be deleted.
 	 */
