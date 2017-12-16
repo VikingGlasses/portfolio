@@ -1,10 +1,6 @@
 package org.benjamin.portfolio.model.bean;
 
-import java.io.Serializable;
-
-public class RequestSlip implements Serializable {
-	
-	private static final long serialVersionUID = 3818505587437427342L;
+public class RequestSlip {
 	
 	private boolean viewPrediction;
 	private boolean runPrediction;
