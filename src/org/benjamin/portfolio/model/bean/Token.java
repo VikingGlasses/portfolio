@@ -22,9 +22,13 @@ public class Token {
 	private RequestSlip requestSlip;
 	
 	public Token() {
-		requestSlip = new RequestSlip();
 	}
 	
+	public Token(String expire, RequestSlip requestSlip) {
+		this.expire = expire;
+		this.requestSlip = requestSlip;
+	}
+
 	public String getKey() {
 		return key;
 	}
