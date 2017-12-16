@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Controller for receiving code submitions. 
  * 
- * @author benjamin
+ * @author Benjamin Rosman
  *
  */
 @RestController
