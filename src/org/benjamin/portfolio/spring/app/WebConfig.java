@@ -1,18 +1,21 @@
 package org.benjamin.portfolio.spring.app;
 
 import org.benjamin.portfolio.model.controller.CodeInterceptor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/**
+ * This class consist exclusively of Spring MVC configurations.
+ * 
+ * @author Benjamin Rosman
+ * @see WebMvcConfigurerAdapter
+ *
+ */
 @Configuration
-
 @EnableWebMvc
-
 @ComponentScan({"org.benjamin.portfolio.model"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
@@ -24,13 +27,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	}
 
 	
-	@Bean
-	public InternalResourceViewResolver internalResourceViewResolver() {
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/");
-		resolver.setSuffix(".xhtml");
-		return resolver;
-	}
+//	@Bean
+//	public InternalResourceViewResolver internalResourceViewResolver() {
+//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//		resolver.setPrefix("/WEB-INF/");
+//		resolver.setSuffix(".xhtml");
+//		return resolver;
+//	}
 	// Resolver
 	// prefix web-inf
 	// sufix .xhtml
