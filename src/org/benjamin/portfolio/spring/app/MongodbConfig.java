@@ -10,7 +10,7 @@ import com.mongodb.MongoClient;
 
 @Configuration
 
-@EnableMongoRepositories(basePackages= {"org.benjamin.portfolio.model.repository", "org.benjamin.portfolio.model.bean"})
+@EnableMongoRepositories(basePackages= {"org.benjamin.portfolio.model.repository"})
 public class MongodbConfig extends AbstractMongoConfiguration {
 
 	@Override

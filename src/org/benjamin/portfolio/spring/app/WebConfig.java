@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
 
-@ComponentScan({"org.benjamin.portfolio"})
+@ComponentScan({"org.benjamin.portfolio.model"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
 	@Override
