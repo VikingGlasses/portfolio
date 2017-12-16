@@ -1,8 +1,18 @@
 package org.benjamin.portfolio.model.bean;
 
+import org.benjamin.portfolio.model.repository.TokenRepository;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Token associated with a users current behavior and administrator permission.
+ * 
+ * <p>Used for persistent storage of tokens and keeping track of a users current
+ * permission and request behavior.</p>
+ * 
+ * @author Benjamin Rosman
+ * @see TokenRepository
+ */
 @Document(collection = "tokens")
 public class Token {
 	
