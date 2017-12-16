@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Machine learning API for training a algorithm and running predictions.
+ * 
+ * @author Benjamin Rosman
+ *
+ */
 @RestController
 @RequestMapping("/ml")
 public class PredictionController {
@@ -28,6 +34,13 @@ public class PredictionController {
 	@Autowired
 	private TrainingSession trainingSession;
 	
+	/**
+	 * Runs the appropriate algorithms based on the users token.
+	 * 
+	 * @param name User input.
+	 * @param session The users session.
+	 * @return Either an empty ok response or a prediction.
+	 */
 	@RequestMapping(path="/{name}", method=RequestMethod.POST)
 	public Response runMachineLearning(@PathVariable String name, HttpSession session) {
 		System.out.println("running machine learning request...");
