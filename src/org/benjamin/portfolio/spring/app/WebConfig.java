@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
@@ -25,18 +26,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		registry.addInterceptor(new CodeInterceptor()).addPathPatterns("/submit/code/*");
 		System.out.println("Added interceptors...");
 	}
-
 	
-//	@Bean
-//	public InternalResourceViewResolver internalResourceViewResolver() {
-//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-//		resolver.setPrefix("/WEB-INF/");
-//		resolver.setSuffix(".xhtml");
-//		return resolver;
-//	}
-	// Resolver
-	// prefix web-inf
-	// sufix .xhtml
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/public-resources/");
+	}
 
-	 
 }

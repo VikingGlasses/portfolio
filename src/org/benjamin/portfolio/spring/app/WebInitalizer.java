@@ -28,14 +28,9 @@ public class WebInitalizer implements WebApplicationInitializer {
 								.addServlet("dispatcher", new DispatcherServlet(context));
 		int LOAD_ON_START = 1;
 		dispatcher.setLoadOnStartup(LOAD_ON_START);
-		dispatcher.addMapping("/");
+		dispatcher.addMapping("/*");
 		Collection<String> mappings = dispatcher.getMappings();
 		mappings.stream().forEach(string -> System.out.println(string));
-		
-//		ServletRegistration.Dynamic facesServlet = servletContext
-//								.addServlet("faces servlet", new FacesServlet());
-//		facesServlet.setLoadOnStartup(LOAD_ON_START);
-//		facesServlet.addMapping("*.xhtml");
 	}
 
 }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<meta charset="UTF-8"> 
+	<title>Portfolio</title>
+</head>
+<body>
+
+	<h1>Portfolio</h1>
+	
+	<div >
+		Code: 
+		<input type="text" required name="code" placeholder="Code" id="code" onkeydown="checkKey(event)">
+		<input type="submit" value="Submit" onclick="sendCode()">
+		<span id="codeMessage"></span>
+	</div>
+	
+	<div>
+		<a href="#" onclick="sendMlReq('home')">Home</a>
+		<a href="#" onclick="sendMlReq('project')">Projects</a>
+		<a href="#" onclick="sendMlReq('about')">About</a>
+		<a href="#" onclick="sendMlReq('contact')">Contact</a>
+	</div>
+	
+	<div>
+		<p id="prediction"></p>
+	</div>
+
+	<script type="text/javascript">
+		var display_predictions = document.getElementById('prediction');
+		var display_code_message = document.getElementById('codeMessage');
+		
+		function checkKey(event) {
+			// if Enter key
+			if (event.keyCode == 13) {
+				sendCode();
+			}
+		}
+		
+		function sendCode() {
+			var code = document.getElementById('code').value;
+			if (code === "") {
+				console.log("empty field");
+			} else {
+				console.log(code);
+				var xhttp = new XMLHttpRequest();
+				xhttp.open('POST', 'http://localhost:8080/portfolio/submit/code/' + code);
+				xhttp.send();
+				console.log("sent request?");
+	
+				var REQUEST_DONE = 4; // ready
+				var REQUEST_OK = 200; // ok-status
+				var REQUEST_UNATHORIZED = 401;
+	
+				xhttp.onreadystatechange = function() {
+					if (xhttp.readyState === REQUEST_DONE) {
+						console.log("request done...");
+						if (xhttp.status === REQUEST_OK) {
+							// var response = this.response;
+							// var codeResponse = JSON.parse(this.response);
+							// loop out prediction links
+							display_code_message.innerHTML = "ok";
+						} else if (xhttp.status === REQUEST_UNATHORIZED) {
+							// var codeResponse = JSON.parse(this.response);
+							display_code_message.innerHTML = "not ok";
+						}
+						console.log("request status = " + xhttp.status);
+					} else {
+						console.log("Request not done");
+					}
+				}
+			}
+		}
+	
+		function sendMlReq(input) {
+			console.log(input + " clicked");
+			var xhttp = new XMLHttpRequest();
+			xhttp.open('POST', 'http://localhost:8080/portfolio/ml/' + input);
+			xhttp.send();
+
+			var REQUEST_DONE = 4; // ready
+			var REQUEST_STATUS = 200; // ok-status
+
+			xhttp.onreadystatechange = function() {
+				if (xhttp.readyState === REQUEST_DONE) {
+					if (xhttp.status === REQUEST_STATUS) {
+						// var response = this.response;
+						var predictionResponse = JSON.parse(this.response);
+						var predictions = predictionResponse.predictions;
+						// loop out prediction links
+						//display_predictions.innerHTML = id;
+					}
+				}
+			}
+		}
+
+	</script>
+
+</body>
+</html>

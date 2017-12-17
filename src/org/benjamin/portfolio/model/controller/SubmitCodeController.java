@@ -35,20 +35,21 @@ public class SubmitCodeController {
 	 * @param input The received code.
 	 * @param session The users session.
 	 */
-	@RequestMapping(path="/{code}", method=RequestMethod.POST)
-	public void setSlip(@PathVariable("code") String input, HttpSession session) {
-		System.out.println("Changing 'request slip'...");
+	@RequestMapping(path="/{input}", method=RequestMethod.POST)
+	public void setSlip(@PathVariable String input, HttpSession session) {
+		System.out.println("Changing request slip...");
 		// Get KeyCode
 		System.out.println("Id is null = " + Boolean.toString(input == null));
 		Code code = codeRepository.findByCode(input);
 		// get Token
-		Token token  = tokenRepository.findOne((String) session.getAttribute("token-key"));
+//		Token token  = tokenRepository.findOne((String) session.getAttribute("token-key"));
+		Token token = new Token();
 		// setRequestSlip
-		System.out.println("Setting 'request slip'...");
+		System.out.println("Setting request slip...");
 		token.setRequestSlip(code.getRequestSlip());
 		token.setAdmin(code.isAdmin());
 		// update Token
-		tokenRepository.save(token);
+//		tokenRepository.save(token);
 		System.out.println("Slip saved...");
 		// send response?
 	}
