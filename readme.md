@@ -11,15 +11,13 @@ Admin page for adding, changing and removing codes.
 - Run the application and use postman with the base URI http://localhost:8080/portfolio
 - Use the following urls to invoke the admin controller methods to set usable codes and their 
   behaviour, where code is any string and the other paramaters are either 'true' or 'false':
-    * `/admin/create/{code}/{train}/{predict}/{view}/{admin}`: creates a new code
-    * `/admin/update/{code}/{train}/{predict}/{view}/{admin}`: updates the code with the new
-    behaviour or creates a new code if it didn't exist.
-    * `/admin/codes`: GET method returns all codes.
-    * `/admin/delete/{code}`: deletes a code.
-- Submit a code to change behaviour with:
-    * `/submit/code/{code}`: change behaviour to match the codes.
-- Submit a machine learning request with:
-    * `/ml/{name}`: submits a training/prediction request.
+    * `/admin/create/{code}/{train}/{predict}/{view}/{admin}`: creates a new code, run as
+     POST method.
+    * `/admin/update/{code}/{train}/{predict}/{view}/{admin}`: updates the code with
+    the new behaviour or creates a new code if it didn't exist, run as PUT method.
+    * `/admin/codes`: returns all codes, run as GET method.
+    * `/admin/delete/{code}`: deletes a code, run as DELETE method.
+- Go to http://localhost:8080/portfolio in your browser and click around.
 
 ### Build and run
 
