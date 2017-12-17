@@ -73,7 +73,7 @@ public class AdminController {
 	 * @return The code object.
 	 */
 	@RequestMapping(path = "/update/{code}/{train}/{predict}/{view}/{admin}", 
-					method = RequestMethod.POST,
+					method = RequestMethod.PUT,
 					produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	Code updateCode(@PathVariable("code") String code,
 					@PathVariable("train") boolean train, 
@@ -98,7 +98,7 @@ public class AdminController {
 	 * @param code Code to be deleted.
 	 */
 	@RequestMapping(path = "/delete/{code}", 
-					method = RequestMethod.POST,
+					method = RequestMethod.DELETE,
 					produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	void deleteCode(@PathVariable("code") String code) {
 		Code objCode = codeRepository.findByCode(code);
